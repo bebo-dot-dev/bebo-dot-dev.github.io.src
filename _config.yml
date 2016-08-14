@@ -1,0 +1,44 @@
+# Site settings
+description: jjssoftware.github.io blog
+baseurl: ""
+url: "https://jjssoftware.github.io"
+
+# User settings
+name: joe
+username: joe at jjssoftware 
+user_description: Joe Lippa at JJSSoftware
+user_title: c# hacker by day, c/c++ hacker by night
+email: joe@jjssoftware.co.uk
+twitter_username: id8266_1
+github_username:  jjssoftware
+gplus_username:  108205719135497472486
+disqus_username: jjssoftwaregithubio
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
+
+
+# html minify
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
+
+# Links to include in menu navigation
+# For external links add external: true
+links:
+  - title: Home
+    url: /
+  - title: YouTube
+    external: true    
+    url: https://www.youtube.com/channel/UCa_exk34O_W2tTnGeHXw5Og
+  - title: Tags
+    url: /tags
+  - title: About Me
+    url: /about
+
+# exclude my node related stuff
+exclude: ['package.json', 'src', 'node_modules']
