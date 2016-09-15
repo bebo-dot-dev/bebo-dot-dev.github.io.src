@@ -2,7 +2,7 @@
 layout: post
 title: "esp8266 Lithium Charging Breakout PCB"
 date: 2016-09-15 07:49:10
-image: '/assets/img/board-v2.png' 
+image: '/assets/img/board-v2-small.png' 
 description: "lithium charging antics, the sequel"
 tags:
 - esp8266
