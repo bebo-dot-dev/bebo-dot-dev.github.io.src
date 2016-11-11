@@ -11,9 +11,11 @@ tags:
 - ssl
 - internet
 - web
+- security
 categories:
 - web
 - internet
+- security
 twitter_text: "Securing your esp8266"
 ---
 
