@@ -57,7 +57,7 @@ I've emphasised **strong** a couple of times here but just how do you enforce a 
 {% lightbox /assets/img/complexify.js.png --data="image_set" --title="complexify in the browser" %}
 
 ## jquery.complexify.js and ESP8266Complexify
-jquery.complexify.js is nice because it supports a banned password list generated from 500 worst passwords and 401 banned twitter passwords as of 20/05/2015. This removes the ability for a user to use one of a bunch of known really poor passwords. I'm sure if a user was really determined, they could still still attempt to game complexify in some way to get a semi-poor password past it but that behaviour would be in the realm of the user and complexify does it's best to prevent this. 
+jquery.complexify.js is nice because it supports a banned password list generated from 500 worst passwords and 401 banned twitter passwords as of 20/05/2015. This removes the ability for a user to use one of a bunch of known really poor passwords. I'm sure if a user was really determined, they could still attempt to game complexify in some way to get a semi-poor password past it but that behaviour would be in the realm of the user and complexify does it's best to prevent this. 
 
 Of course complexify in the browser is only half the story, a good web application will never trust what gets sent up from the client side and validation also needs to be performed on the server side. To enable this I implemented an arduino core c++ complexify port for use in my firmware. That code is here: [https://github.com/jjssoftware/ESP8266Complexify](https://github.com/jjssoftware/ESP8266Complexify){:target="_blank"}
 
