@@ -20,7 +20,7 @@ twitter_text: "a DIY web enabled home heating system"
 ## Another Worcester-Bosch boiler hack
 I decided to automate my heating system after being inspired by [Steven Hale's phenomenal original work](http://www.stevenhale.co.uk/main/2013/08/home-automation-reverse-engineering-a-worcester-bosch-dt10rf-wireless-thermostat/){:target="_blank"}
 
-This post is a whistle-stop tour in pictures and video of my take and build of Steve's method of reverse engineering the 433MHz signals sent from my [DT10RF MK2](https://www.worcester-bosch.co.uk/professional/support/documents/worcester-dt10rf-installation-instructions){:target="_blank"} thermostat to enable a node-RED system to be built around my home heating system for more flexible monitoring and control. Many thanks go to Steve for paving the way to make this build a reality.
+This post is a whistle-stop tour in pictures and video of my take of Steve's method of reverse engineering the 433MHz signals sent from my [DT10RF MK2](https://www.worcester-bosch.co.uk/professional/support/documents/worcester-dt10rf-installation-instructions){:target="_blank"} thermostat, to enable a node-RED system to be built around my home heating system for more flexible monitoring and control. Many thanks go to Steve for paving the way to make this build a reality.
 
 **SDR dongle [(ebay listing here)](http://www.ebay.co.uk/itm/252674906658){:target="_blank"}:**{: style="display:block; text-align: center;"}
 {% lightbox /assets/img/sdr-dongle.jpg --data="image_set" --img-style="max-width:40%;" --title="The SDR dongle I used to capture the 433MHz signals for boiler ON/OFF being sent from my DT10RF Mk2 thermostat" %}
