@@ -60,7 +60,7 @@ Algo is based on [StrongSwan](https://wiki.strongswan.org/projects/strongswan){:
 3. Copy `/your-algo-path/configs/pki/certs/your-user.crt` to `/etc/ipsec.d/certs`
 4. Copy `/your-algo-path/configs/pki/private/your-user.key` to `/etc/ipsec.d/private`
 5. Edit `etc/ipsec.secrets` including the user key into the file e.g. `<server_ip> : ECDSA your-user.key`
-6. Copy `/your-algo-path/configs/ipsec_your-user.conf`to `/etc/ipsec.conf. Review the name of the first conn VPN connection in this file (`<conn-name>`).
+6. Copy `/your-algo-path/configs/ipsec_your-user.conf`to `/etc/ipsec.conf`. Review the name of the first conn VPN connection in this file (`<conn-name>`).
 7. `sudo ipsec restart`to pickup the configuration changes
 8. `sudo ipsec up <conn-name>` to bring up the tunnel
 
