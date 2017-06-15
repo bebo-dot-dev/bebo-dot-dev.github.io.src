@@ -91,7 +91,7 @@ iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth0 -j SNAT --to-source $PL
 You might also need to tweak MSS for your LAN clients (I did):
 
 ```
-iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1380
+iptables -t mangle -A FORWARD -s 192.168.0.0/24 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1380
 ```
 <br/>
 ..and also tweak MSS in the dynamic StrongSwan routing table by editing `/etc/strongswan.d/charon/kernel-netlink.conf`and enabling the `mss` value.
