@@ -91,17 +91,15 @@ iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth0 -j SNAT --to-source $PL
 You might also need to tweak MSS for your LAN clients (I did):
 
 ```
-iptables -t mangle -A FORWARD -s 192.168.0.0/24 -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1380
+iptables -t mangle -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --set-mss 1380
 ```
 <br/>
 It's probably worth pointing out that StrongSwan also supports adjusting MSS by editing `/etc/strongswan.d/charon/kernel-netlink.conf` and enabling the `mss` value and this effects a change in the StrongSwan dynamic `ip route show table 220` routing table.
 
-Since the sole purpose in life of our Neo2 is to act as a router and it's intended that all traffic will be piped down the tunnel when the tunnel is up, IMO the iptables method alone would be a better solution for adjusting mss in this application. Also note the fact that at the time of writing [https://wiki.strongswan.org/projects/strongswan/wiki/ForwardingAndSplitTunneling#MTUMSS-issues](https://wiki.strongswan.org/projects/strongswan/wiki/ForwardingAndSplitTunneling#MTUMSS-issues){:target="_blank"} states the following which implies that using charon.plugins.kernel-netlink.mss could result in unexpected behaviour:
+Since the sole purpose in life of our Neo2 is to act as a router and it's intended that all traffic will be piped down the tunnel when the tunnel is up, IMO the iptables method alone is the better solution for adjusting mss in this application. Also note the fact that at the time of writing [https://wiki.strongswan.org/projects/strongswan/wiki/ForwardingAndSplitTunneling#MTUMSS-issues](https://wiki.strongswan.org/projects/strongswan/wiki/ForwardingAndSplitTunneling#MTUMSS-issues){:target="_blank"} states the following which implies that using charon.plugins.kernel-netlink.mss could result in unexpected behaviour:
 
 > *The charon.plugins.kernel-netlink.mss and charon.plugins.kernel-netlink.mtu may be used, too, but the values set there apply
 to the routes that kernel-netlink installs and the impact of them onto the traffic and the behavior of the kernel is currently quite unclear.*
-
-During testing various applications through the tunnel I found that the iptables MSS adjust and the charon.plugins.kernel-netlink.mss adjust were both required.
 
 Finally of course you need to point your LAN client devices' default gateways to point to the IP address of the Neo2 so they route their traffic through the tunnel.
 
