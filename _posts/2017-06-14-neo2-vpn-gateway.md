@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "an SBC board IPSEC router"
+title: "an SBC IPSEC router"
 date: 2017-06-14 08:22:55
 image: '/assets/img/vpn.jpg' 
 description: "create your own tiny VPN gateway device"
