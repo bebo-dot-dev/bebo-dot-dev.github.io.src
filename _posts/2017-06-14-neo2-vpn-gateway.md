@@ -61,7 +61,7 @@ Algo is based on [StrongSwan](https://wiki.strongswan.org/projects/strongswan){:
 4. Copy `/your-algo-path/configs/pki/private/your-user.key` to `/etc/ipsec.d/private`
 5. Edit `etc/ipsec.secrets` including the user key into the file e.g. `<server_ip> : ECDSA your-user.key`
 6. Copy `/your-algo-path/configs/ipsec_your-user.conf` to `/etc/ipsec.conf`. Review the name of the first conn VPN connection in this file (`<conn-name>`).
-7. `sudo ipsec restart`to pickup the configuration changes
+7. `sudo ipsec restart` to pickup the configuration changes
 8. `sudo ipsec up <conn-name>` to bring up the tunnel
 
 Another thing you might want to do is create a start script for your system so the tunnel comes up when the system starts. [This is a good start point for that script](https://github.com/strongswan/strongswan/blob/master/packages/strongswan/debian/strongswan-starter.ipsec.init){:target="_blank"}
@@ -81,6 +81,68 @@ It was at this point I thought it would be a nice idea if I had a VPN gateway de
 
 When the board arrived, I prepared the SD card with the latest Armbian build for the Neo2, booted the device, downloaded and built StrongSwan on the device. I gave the Neo2 a static IP and pointed it's default gateway at the LAN default gateway edge router. 
 
+The Neo2 needs a new flavour of `/etc/ipsec.conf` rather than using the default Algo flavour of `/your-algo-path/configs/ipsec_your-user.conf`. The following configuration enables LAN clients to be correctly configured with a StrongSwan virtual IP address that StrongSwan uses to workout which clients are eligible to use the tunnel. Add new LAN client configuration connections as required:
+
+```
+conn base
+    fragmentation=yes
+    
+    dpdaction=restart
+    keyingtries=%forever
+    
+    keyexchange=ikev2
+    ike=aes128gcm16-prfsha512-ecp256,aes128-sha2_512-prfsha512-ecp256,aes128-sha2_384-prfsha384-ecp256!
+    esp=aes128gcm16-ecp256,aes128-sha2_512-prfsha512-ecp256!
+
+    auto=start
+    
+conn vpn
+    also=base
+
+    right=<Your VPN Server public IP address>
+    rightid=<Your VPN Server public IP address>
+    rightsubnet=0.0.0.0/0
+    rightauth=pubkey
+
+    leftsourceip=%config
+    leftauth=pubkey
+    leftcert=your-user.crt
+    left=%defaultroute
+    leftsubnet=%dynamic,192.168.0.1/24
+    #leftupdown=/path/to/updown/script # if used
+
+conn lan_base
+    also=base
+
+    left=<Your VPN Server public IP address>
+    leftid=<Your VPN Server public IP address>
+    leftsubnet=0.0.0.0/0
+    leftauth=pubkey
+
+    rightauth=pubkey
+    rightcert=your-user.crt
+    rightsubnet=%dynamic,192.168.0.1/24
+
+conn my_laptop
+    also=lan_base
+    rightsourceip=192.168.0.11
+    rightid=192.168.0.11
+
+conn my_phone
+    also=lan_base
+    rightsourceip=192.168.0.12
+    rightid=192.168.0.12
+
+conn bypass
+    left=127.0.0.1
+    right=127.0.0.1
+    leftsubnet=192.168.0.1/24
+    rightsubnet=192.168.0.1/24
+    authby=never
+    type=pass
+    auto=route
+```
+<br/>
 A couple of other things that need to be done to get routing working are to enable IP forwarding in `/etc/sysctl.conf` with `net.ipv4.ip_forward=1` and a couple of NAT rules need to be added to iptables on the device which I added via a [custom StrongSwan updown script](https://wiki.strongswan.org/projects/strongswan/wiki/Updown){:target="_blank"}:
 
 ```
