@@ -1,16 +1,16 @@
 # Site settings
-description: jjssoftware.github.io blog
+description: bebo-dot-dev.github.io blog
 baseurl: ""
-url: "https://jjssoftware.github.io"
+url: "https://bebo-dot-dev.github.io"
 
 # User settings
 name: joe
-username: joe at jjssoftware 
-user_description: Joe Lippa at JJSSoftware
+username: joe at bebo dot dev 
+user_description: Joe Lippa at bebo.dev
 user_title: c# hacker by day, c/c++ hacker by night
-email: joe@jjssoftware.co.uk
-twitter_username: id8266_1
-github_username:  jjssoftware
+email: joe@bebo.dev
+twitter_username: joe_lippa
+github_username:  bebo-dot-dev
 gplus_username:  108205719135497472486
 disqus_username: jjssoftwaregithubio
 
