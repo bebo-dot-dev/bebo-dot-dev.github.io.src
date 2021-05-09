@@ -5,20 +5,17 @@ url: "https://bebo-dot-dev.github.io"
 
 # User settings
 name: joe
-username: joe at bebo dot dev 
+username: joe@bebo.dev
 user_description: Joe Lippa at bebo.dev
-user_title: c# hacker by day, c/c++ hacker by night
 email: joe@bebo.dev
 twitter_username: joe_lippa
 github_username:  bebo-dot-dev
-gplus_username:  108205719135497472486
 disqus_username: jjssoftwaregithubio
 
 # Build settings
 markdown: kramdown
 highlighter: rouge
 permalink: /:title/
-
 
 # html minify
 compress_html:
