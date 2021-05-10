@@ -1,0 +1,36 @@
+{
+  "name": "willjekylltemplate",
+  "version": "1.0.0",
+  "description": "My jekyll blog template.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "frontend",
+    "blog",
+    "css",
+    "stylus",
+    "gulp",
+    "jekyll",
+    "js"
+  ],
+  "author": "Willian Justen de Vasconcellos",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.4.0",
+    "browser-sync": "^2.26.14",
+    "grunt": "^1.4.0",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.4.3",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-plumber": "^0.6.6",
+    "gulp-stylus": "^2.7.0",
+    "gulp-uglify": "^1.0.2"
+  },
+  "dependencies": {
+    "jeet": "^6.1.4",
+    "kouto-swiss": "^1.1.0",
+    "rupture": "^0.6.1"
+  }
+}
