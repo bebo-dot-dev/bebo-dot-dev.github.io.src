@@ -2,10 +2,8 @@
 
 ![Screenshot](screenshot.png)
 
-This repo is the source for the github pages based [jjssoftware.github.io](https://jjssoftware.github.io) blog built with the Will Jekyll Template: [demo](http://willianjusten.com.br/will-jekyll-template)
-
-Thanks to [Willian Justen](https://willianjusten.com.br/) for building this great [jekyll theme](https://github.com/willianjusten/will-jekyll-template)
+This repo is the source for the github pages [bebo-dot-dev.github.io](https://bebo-dot-dev.github.io/) blog
 
 ```
-jekyll build -d ../jjssoftware.github.io/
+jekyll build -d ../bebo-dot-dev.github.io/
 ```
