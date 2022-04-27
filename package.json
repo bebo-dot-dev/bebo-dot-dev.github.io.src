@@ -20,7 +20,7 @@
   "devDependencies": {
     "autoprefixer-stylus": "^0.4.0",
     "browser-sync": "^2.26.14",
-    "grunt": "^1.4.0",
+    "grunt": "^1.5.2",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.4.3",
     "gulp-imagemin": "^7.1.0",
