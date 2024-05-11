@@ -23,7 +23,7 @@
     "grunt": "^1.6.1",
     "gulp": "^5.0.0",
     "gulp-concat": "^2.4.3",
-    "gulp-imagemin": "^9.0.0",
+    "gulp-imagemin": "^9.1.0",
     "gulp-plumber": "^1.2.1",
     "gulp-stylus": "^3.0.1",
     "gulp-uglify": "^3.0.2"
